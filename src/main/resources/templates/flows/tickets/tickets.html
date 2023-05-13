@@ -59,6 +59,26 @@
     .main-content p {
       line-height: 1.5;
     }
+    table {
+      width: 80%;
+      margin: 50px auto;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    table th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
 
   </style>
 </head>
@@ -72,7 +92,7 @@
       <li><a th:href="@{/signup}">Créer un compte</a></li>
       <li><a th:href="@{/events}">Evenements</a></li>
       <li><a th:href="@{/tickets}">Billets</a></li>
-      <li><a th:href="@{/tickets/new}">Créer un nouveau ticket</a></li>
+      <li><a th:href="@{/tickets/new}">Créer un nouveau billet</a></li>
       <li><a th:href="@{/logout}">Déconnexion</a></li>
     </ul>
   </nav>
@@ -82,7 +102,6 @@
 <table>
   <thead>
   <tr>
-    <th>ID</th>
     <th>Type</th>
     <th>Prix</th>
     <th>Événement</th>
@@ -90,7 +109,6 @@
   </thead>
   <tbody>
   <tr th:each="ticket : ${tickets}">
-    <td th:text="${ticket.id}"></td>
     <td th:text="${ticket.type}"></td>
     <td th:text="${ticket.price}"></td>
     <td th:text="${ticket.event.name}"></td>
