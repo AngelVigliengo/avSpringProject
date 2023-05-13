@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Home</title>
+  <style>
+    /* Styles pour le corps de la page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styles pour la navigation */
+    nav {
+      background-color: #333;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    nav a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Styles pour le titre */
+    h1 {
+      font-size: 2em;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* Styles pour le contenu principal */
+    .main-content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-content p {
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+
+<div>
+  <nav>
+    <ul>
+      <li><a th:href="@{/}">Accueil</a></li>
+      <li><a th:href="@{/login}">Connexion</a></li>
+      <li><a th:href="@{/signup}">Créer un compte</a></li>
+      <li><a th:href="@{/events}">Evenements</a></li>
+      <li><a th:href="@{/tickets}">Billets</a></li>
+      <li><a th:href="@{/logout}">Déconnexion</a></li>
+    </ul>
+  </nav>
+</div>
+
+<h1>Bienvenue !</h1>
+<div class="main-content">
+  <p>Notre logiciel de réservation de billets pour événements est une plateforme en ligne destinée à aider les organisateurs d'événements à gérer la vente de billets pour leurs événements. Les utilisateurs peuvent s'inscrire sur le site, parcourir une liste d'événements disponibles et acheter des billets pour ceux qui les intéressent.</p>
+</div>
+</body>
+</html>

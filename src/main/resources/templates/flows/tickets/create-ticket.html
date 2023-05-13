@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Créer un billet</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style>
+    /* Styles pour le corps de la page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styles pour la navigation */
+    nav {
+      background-color: #333;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Styles pour le titre */
+    h1 {
+      font-size: 2em;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* Styles pour le contenu principal */
+    .main-content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-content p {
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    /* Styles pour le formulaire */
+    form {
+      margin: 30px auto;
+      width: 50%;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    form p {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    form label {
+      margin-right: 10px;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    form button[type="submit"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+
+<div>
+  <nav>
+    <ul>
+      <li><a th:href="@{/}">Accueil</a></li>
+      <li><a th:href="@{/login}">Connexion</a></li>
+      <li><a th:href="@{/signup}">Créer un compte</a></li>
+      <li><a th:href="@{/events}">Evenements</a></li>
+      <li><a th:href="@{/tickets}">Billets</a></li>
+      <li><a th:href="@{/logout}">Déconnexion</a></li>
+    </ul>
+  </nav>
+</div>
+
+<h1>Créer un billet</h1>
+<form method="post" th:object="${ticket}" th:action="@{/tickets/new}">
+  <p>Type : <input type="text" th:field="*{type}" required/></p>
+  <p>Prix : <input type="number" step="0.01" th:field="*{price}" required/></p>
+  <p>Événement :
+    <select th:field="*{event}" required>
+      <option th:each="event : ${events}" th:value="${event.getId()}" th:text="${event.name}"></option>
+    </select>
+  </p>
+  <button type="submit">Créer</button>
+</form>
+</body>
+</html>

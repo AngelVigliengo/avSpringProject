@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <view-state id="MenuPrincipal"
+                view="home"
+                redirect="false">
+        <transition on="login"
+                    to="login" />
+    </view-state>
+
+    <view-state id="login"
+                view="flows/register/login">
+    </view-state>
+
+    <view-state id="events"
+                view="flows/events/events">
+    </view-state>
+
+    <view-state id="signup"
+                view="flows/register/signup">
+    </view-state>
+
+    <view-state id="tickets"
+                view="flows/tickets/tickets">
+    </view-state>
+
+    <end-state id="Sortie"
+               view="flow/register/SortieApplication"/>
+
+    <global-transitions>
+        <transition on="Menu" to="MenuPrincipal"/>
+        <transition to="Sortie" />
+    </global-transitions>
+
+</flow>

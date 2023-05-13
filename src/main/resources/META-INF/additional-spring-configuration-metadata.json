@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "enableLoggingRequestDetails",
+      "type": "java.lang.String",
+      "description": "Description for enableLoggingRequestDetails."
+    },
+    {
+      "name": "log4j.logger.org.thymleaf",
+      "type": "java.lang.String",
+      "description": "Description for log4j.logger.org.thymleaf."
+    }
+  ] }

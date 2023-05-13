@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Event</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        /* Styles pour le corps de la page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styles pour la navigation */
+        nav {
+            background-color: #333;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Styles pour le titre */
+        h1 {
+            font-size: 2em;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        /* Styles pour le contenu principal */
+        .main-content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content p {
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Edit Event</h1>
+<form method="post" th:object="${event}" th:action="@{/events/{id}(id=${event.id})}">
+    <input type="hidden" th:field="*{id}" />
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Date: <input type="date" th:field="*{date}" /></p>
+    <p><input type="submit" value="Save" /></p>
+</form>
+</body>
+</html>

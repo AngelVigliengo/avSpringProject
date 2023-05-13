@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Liste des billets</title>
+  <meta charset="UTF-8"/>
+  <style>
+    /* Styles pour le corps de la page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styles pour la navigation */
+    nav {
+      background-color: #333;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    nav a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Styles pour le titre */
+    h1 {
+      font-size: 2em;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* Styles pour le contenu principal */
+    .main-content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-content p {
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+<body>
+
+<div>
+  <nav>
+    <ul>
+      <li><a th:href="@{/}">Accueil</a></li>
+      <li><a th:href="@{/login}">Connexion</a></li>
+      <li><a th:href="@{/signup}">Créer un compte</a></li>
+      <li><a th:href="@{/events}">Evenements</a></li>
+      <li><a th:href="@{/tickets}">Billets</a></li>
+      <li><a th:href="@{/tickets/new}">Créer un nouveau ticket</a></li>
+      <li><a th:href="@{/logout}">Déconnexion</a></li>
+    </ul>
+  </nav>
+</div>
+
+<h1>Liste des billets</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Type</th>
+    <th>Prix</th>
+    <th>Événement</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="ticket : ${tickets}">
+    <td th:text="${ticket.id}"></td>
+    <td th:text="${ticket.type}"></td>
+    <td th:text="${ticket.price}"></td>
+    <td th:text="${ticket.event.name}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

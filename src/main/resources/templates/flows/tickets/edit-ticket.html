@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Modifier un billet</title>
+  <style>
+    /* Styles pour le corps de la page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styles pour la navigation */
+    nav {
+      background-color: #333;
+      color: #fff;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    nav a:hover {
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* Styles pour le titre */
+    h1 {
+      font-size: 2em;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    /* Styles pour le contenu principal */
+    .main-content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-content p {
+      line-height: 1.5;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<h1>Modifier un billet</h1>
+
+<form th:action="@{/tickets/{id}(id=${ticket.id})}" method="post" th:object="${ticket}">
+  <div>
+    <label for="type">Type :</label>
+    <input type="text" id="type" name="type" th:field="*{type}" required>
+  </div>
+  <div>
+    <label for="price">Prix :</label>
+    <input type="number" id="price" name="price" th:field="*{price}" required>
+  </div>
+  <div>
+    <label for="event">Événement :</label>
+    <select id="event" name="event.id" th:field="*{event.id}" required>
+      <option th:each="event : ${events}" th:value="${event.id}" th:text="${event.name}"></option>
+    </select>
+  </div>
+  <button type="submit">Modifier</button>
+</form>
+
+</body>
+
+</html>
