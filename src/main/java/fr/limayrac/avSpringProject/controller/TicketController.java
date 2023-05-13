@@ -57,9 +57,8 @@ public class TicketController {
         newTicket.setType(ticket.getType());
         newTicket.setPrice(ticket.getPrice());
         newTicket.setEvent(event);
-        List<Ticket> tickets = ticketRepository.findAll();
-        model.addAttribute("tickets", tickets);
         ticketRepository.save(newTicket);
+        model.addAttribute("tickets", ticketRepository.findAll());
         return "flows/tickets/tickets";
     }
 
